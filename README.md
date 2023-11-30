@@ -13,6 +13,17 @@
 ```
 git clone https://github.com/LakshmiCel/WeatherForecast
 ```
+This will clone the repository with the same folder structure as defined.
+
+Install using npm command 
+```
+npm i
+```
+Alternatively you can also use 
+```
+npm install
+```
+
 Then start using the React +Vite app using the following command in the terminal 
 ```
 npm  run dev
