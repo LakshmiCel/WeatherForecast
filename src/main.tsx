@@ -1,20 +1,26 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import App  from "./App";
+import App from "./App";
 import { createTheme } from "@mui/material/styles";
-
-export const theme = createTheme({
+import store from "./ReduxToolkit/store";
+import { QueryClient, QueryClientProvider } from "react-query";
+const theme = createTheme({
   palette: {
-    mode: 'light',
+    mode: "light",
   },
 });
-
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
+const root = document.getElementById("root") as HTMLElement;
+const queryClient = new QueryClient();
+ReactDOM.render(
+  <Provider store={store}>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
     </ThemeProvider>
-  </React.StrictMode>
+  </Provider>,
+  root
 );
